@@ -276,7 +276,7 @@ def normalize_adj(adj):
 
 def preprocess_adj(adj):
     """Preprocessing of adjacency matrix for simple GCN model and conversion to tuple representation."""
-    adj = nx.adjacency_matrix(nx.from_dict_of_lists(adj)) # return a adjacency matrix of adj ( type is numpy)
+    adj = nx.to_numpy_matrix(nx.from_dict_of_lists(adj)) # return a adjacency matrix of adj ( type is numpy)
     adj_normalized = normalize_adj(adj + sp.eye(adj.shape[0])) #
     # return sparse_to_tuple(adj_normalized)
     return adj_normalized.todense()
